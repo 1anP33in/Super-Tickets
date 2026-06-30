@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Tickets - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. LANDING PAGE VIEW -->
+    <div id="view-landing" class="view">
+        <header class="landing-header">
+            <div class="logo"><span class="shield-mark"></span> Super Tickets</div>
+            <button class="btn btn-primary nav-dash-btn">Go to Dashboard</button>
+        </header>
+        <section class="hero">
+            <span class="eyebrow">Built for server staff</span>
+            <h1>The Ultimate <span class="accent-underline">Ticket Solution</span> for Your Server</h1>
+            <p>Streamline support, automate inquiries, and manage your community effortlessly with a lightning-fast ticket interface.</p>
+            <button class="btn btn-hero nav-dash-btn">Invite Super Tickets</button>
+        </section>
+    </div>
+
+    <!-- 2. SERVER SELECTION VIEW -->
+    <div id="view-servers" class="view hidden">
+        <header class="panel-navbar">
+            <span class="brand"><span class="shield-mark"></span> Super Tickets <span class="badge">Hub</span></span>
+            <button class="logout-btn">Sign Out</button>
+        </header>
+        <div class="server-selection-container">
+            <h2>Select a Server</h2>
+            <p class="subtitle">Choose a community guild to configure its settings</p>
+            <div class="server-grid">
+                <!-- User's Interactive Server Card -->
+                <div class="server-card active-guild" data-server-name="Zyra HQ" tabindex="0">
+                    <div class="server-icon">ZH</div>
+                    <div class="server-info">
+                        <h3>Zyra HQ</h3>
+                        <span class="status-text text-success">Click to Manage</span>
+                    </div>
+                </div>
+                <!-- Mock Server Cards -->
+                <div class="server-card disabled">
+                    <div class="server-icon mock">AC</div>
+                    <div class="server-info">
+                        <h3>Assetto Club</h3>
+                        <span class="status-text text-muted">Bot Not Present</span>
+                    </div>
+                </div>
+                <div class="server-card disabled">
+                    <div class="server-icon mock">F1</div>
+                    <div class="server-info">
+                        <h3>F1 Racing League</h3>
+                        <span class="status-text text-muted">Bot Not Present</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. MAIN DASHBOARD VIEW -->
+    <div id="view-dashboard" class="view hidden">
+        <header class="panel-navbar">
+            <div class="nav-left">
+                <button id="back-to-servers" class="btn-text">← Change Server</button>
+                <span class="separator">|</span>
+                <span class="current-server-name">Zyra HQ</span>
+            </div>
+            <button id="global-save-btn" class="btn btn-primary">Apply Changes</button>
+        </header>
+
+        <div class="panel-layout">
+            <main class="panel-content">
+                <div id="save-toast" class="toast hidden">Configuration updated!</div>
+
+                <!-- Category 1: Core System Setup -->
+                <div class="settings-group-wrapper">
+                    <h3 class="group-title">Core System Setup</h3>
+                    <div class="config-grid">
+                        <div class="grid-card" data-target="modal-general" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Support Team Roles</h4>
+                                <p>Staff access roles and general flags</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="grid-card" data-target="modal-categories" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Ticket Categorys</h4>
+                                <p>Set live execution and archive categories</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="grid-card" data-target="modal-tickets" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Ticket Formats</h4>
+                                <p>Global naming layouts and variables</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="grid-card" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Response Alerts</h4>
+                                <p>Trigger notifications for specific channels</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Interface Styles -->
+                <div class="settings-group-wrapper">
+                    <h3 class="group-title">Interface Components</h3>
+                    <div class="config-grid">
+                        <div class="grid-card" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Main Prompt Card</h4>
+                                <p>The initial generation embed customizer</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="grid-card" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Inline Access Triggers</h4>
+                                <p>Toggle text commands for ticket creation</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="grid-card" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Action Prompts</h4>
+                                <p>Interactive drop-down layouts</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="grid-card" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Dynamic Intake Forms</h4>
+                                <p>Collect input parameters on creation</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Administration & Logs -->
+                <div class="settings-group-wrapper">
+                    <h3 class="group-title">Administration & Overrides</h3>
+                    <div class="config-grid">
+                        <div class="grid-card" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Transcripts Storage</h4>
+                                <p>Export and save HTML record streams</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="grid-card" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Activity Auditing</h4>
+                                <p>Track staff response intervals</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="grid-card" tabindex="0">
+                            <div class="card-meta">
+                                <h4>Allocation Thresholds</h4>
+                                <p>Enforce capacity rules per customer</p>
+                            </div>
+                            <span class="arrow">→</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Overview -->
+                <div class="quick-config-panel">
+                    <h3>Fast-Track Values</h3>
+                    <div class="quick-inputs-row">
+                        <div class="quick-field">
+                            <label>Support Team Roles</label>
+                            <div class="tag-input-container">
+                                <span class="tag">🛡️ Director</span>
+                                <span class="tag">🔧 Management</span>
+                                <span class="tag">👥 Staff Agent</span>
+                            </div>
+                        </div>
+                        <div class="quick-field">
+                            <label>Live Target Category</label>
+                            <div class="tag-input-container">
+                                <span class="tag blue-tag">🎟️ ACTIVE TICKETS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- CONFIGURATION DRAWER -->
+    <div id="settings-drawer" class="drawer hidden">
+        <div class="drawer-overlay"></div>
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <h3 id="drawer-title">Modify Settings</h3>
+                <button id="close-drawer" class="btn-text">✕</button>
+            </div>
+            <div class="drawer-body">
+                <div id="form-container"></div>
+            </div>
+            <div class="drawer-footer">
+                <button id="apply-drawer-btn" class="btn btn-primary">Apply Block</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
